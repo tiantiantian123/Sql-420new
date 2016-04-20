@@ -1,0 +1,10 @@
+SHOW DATABASES ;
+CREATE DATABASE sqltest;
+
+DROP TABLE  IF EXISTS student;
+CREATE TABLE student(
+  id INT(11) UNSIGNED PRIMARY KEY ,
+  sno INT(11) NOT NULL ,
+  sname VARCHAR(255) NOT NULL ,
+  sbirth DATE
+)
