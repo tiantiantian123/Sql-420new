@@ -1,10 +1,36 @@
 SHOW DATABASES ;
 CREATE DATABASE sqltest;
-
+USE sqltest;
 DROP TABLE  IF EXISTS student;
 CREATE TABLE student(
   id INT(11) UNSIGNED PRIMARY KEY ,
   sno INT(11) NOT NULL ,
   sname VARCHAR(255) NOT NULL ,
-  sbirth DATE
-)
+  sbirth VARCHAR(255)
+);
+
+CREATE TABLE department(
+  id INT(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY ,
+  dno INT(11) NOT NULL ,
+  dname VARCHAR(255) NOT NULL ,
+  dloc VARCHAR(255)
+);
+
+INSERT INTO student VALUES (2011023,1111111,'zhaobo',20000123);
+
+SELECT *FROM student;
+
+CREATE VIEW v_temp AS
+  SELECT id,sno
+  FROM student;
+
+SELECT * FROM v_temp;
+
+INSERT INTO department VALUES (10000,2333333,'chunhua','guanghua');
+
+INSERT INTO student(id,sno,sname,sbirth) SELECT id,dno,dname,dloc  FROM department;
+
+SELECT *
+FROM student;
+
+
